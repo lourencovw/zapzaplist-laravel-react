@@ -9,6 +9,8 @@ export default function TextInput({
     required,
     isFocused,
     handleChange,
+    readOnly,
+    disabled
 }) {
     const input = useRef();
 
@@ -32,6 +34,8 @@ export default function TextInput({
                 autoComplete={autoComplete}
                 required={required}
                 onChange={(e) => handleChange(e)}
+                readOnly={readOnly}
+                disabled={disabled}
             />
         </div>
     );

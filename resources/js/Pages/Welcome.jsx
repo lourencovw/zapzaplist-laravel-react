@@ -46,7 +46,7 @@ export default function Welcome(props) {
                     )}
                 </div> */}
 
-                <div className="flex flex-col max-w-6xl mx-auto sm:px-6 lg:px-8">
+                <div className="flex flex-col max-w-6xl mx-auto max-sm:px-6 max-sm:pt-6  lg:px-8">
                     <form onSubmit={submit} className="flex flex-col ">
                         <div>
                             <InputLabel forInput="title" value="Título" />

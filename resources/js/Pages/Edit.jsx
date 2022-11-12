@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link, Head, useForm } from '@inertiajs/inertia-react';
 import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
 import InputError from '@/Components/InputError';
 import Textarea from '@/Components/Textarea';
 import PrimaryButton from '@/Components/PrimaryButton';
-import { Inertia } from '@inertiajs/inertia'
+import copy from "copy-to-clipboard"; 
 
 export default function Edit(props) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -13,13 +13,6 @@ export default function Edit(props) {
         text: props.text,
         _method: 'PUT'
     });
-
-    console.log(props);
-
-    useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/posts`)
-            .then((response) => console.log(response));
-    }, []);
 
     const submit = (e) => {
         e.preventDefault();
@@ -30,14 +23,21 @@ export default function Edit(props) {
         setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
     };
 
+    const copyLink = () => {
+        copy(props.url);
+        alert(`Url copiada`);
+    }
+
     return (
         <>
             <Head title="Edit" />
-            <div className="relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0 p-2">
+            <div className="h-full relative flex flex-col justify-start sm:justify-center sm:pt-0 p-2 items-center">
+                <PrimaryButton className="mt-2" onClick={copyLink}>
+                    Copiar link
+                </PrimaryButton>
 
-
-                <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                    <form onSubmit={submit} className="flex flex-col ">
+                <div className="flex flex-col max-w-6xl mx-auto max-sm:px-6 max-sm:pt-6  lg:px-8">
+                    <form onSubmit={submit} className="flex flex-col">
                         <div>
                             <InputLabel forInput="title" value="Título" />
 
@@ -70,7 +70,7 @@ export default function Edit(props) {
                         </div>
 
                         <PrimaryButton className="mt-2 self-end" processing={processing}>
-                           Editar
+                            Editar
                         </PrimaryButton>
                     </form>
                 </div>

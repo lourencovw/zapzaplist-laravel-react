@@ -21,7 +21,7 @@ export default function Textarea({
     return (
         <div className="flex flex-col items-start">
             <textarea 
-                rows={4}
+                rows={15}
                 cols={50}
                 type={type}
                 name={name}

@@ -54,7 +54,7 @@ export default function Edit(props) {
                             />
 
                             <InputError message={errors.email} className="mt-2" />
-                            <InputLabel forInput="text" value="Texto Inicial" />
+                            <InputLabel forInput="text" value="Texto" />
 
                             <Textarea
                                 type="text"

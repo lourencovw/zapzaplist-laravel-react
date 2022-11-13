@@ -36,16 +36,10 @@ class ZapListController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreZapListRequest $request)
-    {
-        
+    {    
         $zapList = ZapList::create($request->input());
-        $parameters = [
-            'link' => $zapList->link,
-            'url' => env('APP_URL').$zapList->link.'/edit',
-            'title' => $zapList->title,
-            'text' => $zapList->text
-        ];
-        return redirect()->route('edit.zap-list',$parameters);
+        
+        return redirect($zapList->link.'/edit');
     }
 
     /**

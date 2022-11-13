@@ -17,8 +17,19 @@ class ZapList extends Model
      */
     protected $fillable = ['title', 'text'];
 
-    protected static function booted()
+    protected static function boot()
     {
-        static::creating(fn(ZapList $zapList) => $zapList->link = (string) Str::uuid()->toString());
+        parent::boot();
+        static::creating(function($zapList)
+        {            
+            $zapList->link = $zapList->generateSlug($zapList->title);
+        });
     }
+    private function generateSlug($title)
+    {
+        if (static::whereLink($slug = Str::slug($title))->exists()) {
+            return $slug.'-'.Str::uuid()->toString();
+        }
+        return $slug;
+    } 
 }

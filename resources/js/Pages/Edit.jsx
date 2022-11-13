@@ -30,7 +30,7 @@ export default function Edit(props) {
 
     return (
         <>
-            <Head title="Edit" />
+            <Head title="Editar" />
             <div className="h-full relative flex flex-col justify-start sm:justify-center sm:pt-0 p-2 items-center">
                 <PrimaryButton className="mt-2" onClick={copyLink}>
                     Copiar link

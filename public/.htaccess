@@ -18,8 +18,4 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
-
-    <FilesMatch ".(eot|js|otf|woff)">
-        Header set Access-Control-Allow-Origin "*"
-    </FilesMatch>
 </IfModule>

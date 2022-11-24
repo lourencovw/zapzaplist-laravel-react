@@ -5,7 +5,7 @@ import TextInput from '@/Components/TextInput';
 import InputError from '@/Components/InputError';
 import Textarea from '@/Components/Textarea';
 import PrimaryButton from '@/Components/PrimaryButton';
-import copy from "copy-to-clipboard"; 
+import copy from "copy-to-clipboard";
 
 export default function Edit(props) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -30,7 +30,7 @@ export default function Edit(props) {
 
     return (
         <>
-            <Head title="Editar" />
+            <Head title={props.title} />
             <div className="h-full relative flex flex-col justify-start sm:justify-center sm:pt-0 p-2 items-center">
                 <PrimaryButton className="mt-2" onClick={copyLink}>
                     Copiar link
